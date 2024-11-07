@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  luckycoin-node:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./volume:/root/.luckycoin
+      - ./luckycoin.conf:/root/.luckycoin/luckycoin.conf
+    restart: unless-stopped
+    network_mode: host
