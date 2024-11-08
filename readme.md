@@ -10,8 +10,6 @@
 ## Config
 fit luckycoin.conf for your need
 
-txindex=1
-
 Important parameters are the following : 
 `txindex` must be set to 1 to have all transactions details with scripSign information
 
