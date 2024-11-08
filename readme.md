@@ -11,6 +11,7 @@
 fit luckycoin.conf for your need
 
 Important parameters are the following : 
+
 `txindex` must be set to 1 to have all transactions details with scripSign information
 
 `rpcuser`, `rpcpassword` & `rpcport` are defining your rpc configuration (http://user:pass@127.0.0.1:22555 for example)
