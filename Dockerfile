@@ -1,19 +1,12 @@
 FROM debian:latest
 
 RUN apt-get update && \
-    apt-get install -y build-essential libtool autotools-dev automake pkg-config bsdmainutils python3 && \
-    apt-get install -y libssl-dev libevent-dev libboost-all-dev git
+    apt-get install -y wget unzip && \
+    apt-get install -y libssl-dev libevent-dev libboost-all-dev
 
-RUN git clone https://github.com/luckycoin-community/luckycoin.git /usr/src/luckycoin
-
-RUN chmod -R +x /usr/src/luckycoin
-
-WORKDIR /usr/src/luckycoin
-
-RUN ./autogen.sh && \
-    ./configure --disable-wallet && \
-    make || { cat config.log; exit 1; } && \
-    make install
+RUN wget https://github.com/LuckyCoinProj/luckycoinV3/releases/download/v3.0.0/Node-v3.0.0-linux.zip -O /tmp/luckycoin.zip && \
+    unzip /tmp/luckycoin.zip -d /usr/local/bin && \
+    rm /tmp/luckycoin.zip
 
 RUN mkdir -p /root/.luckycoin
 COPY luckycoin.conf /root/.luckycoin/luckycoin.conf
