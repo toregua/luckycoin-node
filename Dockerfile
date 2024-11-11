@@ -6,6 +6,7 @@ RUN apt-get update && \
 
 RUN wget https://github.com/LuckyCoinProj/luckycoinV3/releases/download/v3.0.0/Node-v3.0.0-linux.zip -O /tmp/luckycoin.zip && \
     unzip /tmp/luckycoin.zip -d /usr/local/bin && \
+    chmod +x /usr/local/bin/luckycoind /usr/local/bin/luckycoin-cli /usr/local/bin/luckycoin-tx && \
     rm /tmp/luckycoin.zip
 
 RUN mkdir -p /root/.luckycoin
